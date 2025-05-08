@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jr portfólio</title>
+
+<style>
+    /* Tema escuro geral */
+    body {
+      background-color: #121212; /* fundo escuro */
+      color: #ffffff; /* texto branco */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    
+    /* Destaques em azul bebê */
+    .highlight, .destaque {
+      color: #89CFF0; /* azul bebê */
+      font-weight: bold;
+    }
+    
+    /* Links */
+    a {
+      color: #00aeff; /* azul bebê */
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Cabeçalhos */
+    h1, h2, h3, h4, h5, h6 {
+      color: #ffffff; /* mantém os títulos brancos */
+      margin-top: 1rem;
+    }
+    
+    /* Botões */
+    .button-container {
+      display: flex;
+      gap: 10px;
+    }
+    
+    button {
+      background-color: #72b6ee; /* azul bebê */
+      color: #ffffff; /* texto branco */
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+      margin-bottom: 50px;
+      margin: 25px;
+    }
+    
+    /* Estilização da linha azul */
+    .titulo-com-linha {
+      position: relative;
+      text-align: center;
+      display: block;
+      margin-bottom: 30px;
+    }
+    
+    .titulo-com-linha span {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+    
+    .titulo-com-linha span::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 3px;
+      width: 80px;
+      background: #89CFF0;
+      border-radius: 2px;
+      animation: expandir-linha 2s ease forwards;
+    }
+    
+    @keyframes expandir-linha {
+      0% {
+        width: 0;
+        opacity: 0;
+      }
+      100% {
+        width: 80px;
+        opacity: 1;
+      }
+    }
+    
+    /* Cabeçalhos */
+    h1 {
+      text-align: center;
+      font-size: 40px;
+      margin-top: 20px;
+    }
+    
+    h2 {
+      font-size: 45px;
+      margin-top: 75px;
+      text-align: center;
+    }
+    
+    h3 {
+      text-align: center;
+      margin-top: 100px;
+      font-size: 35px;
+    }
+    
+    /* Texto centralizado */
+    .texto-centralizado {
+      margin: 40px;
+      text-align: center;
+      font-size: 20px;
+      color: hsl(72, 3%, 34%);
+    }
+    
+    /* Padrão de parágrafos */
+    .p1 {
+      font-size: 20px;
+      margin: 30px;
+      margin-top: 20px;
+    }
+    
+    .p2 {
+      font-size: 35px;
+      margin: 20px;
+      margin-top: 80px;
+    }
+    
+    .p3 {
+      font-size: 25px;
+      margin: 20px;
+      color: rgb(78, 76, 76);
+    }
+    
+    .p4 {
+      font-size: 20px;
+      margin: 20px;
+      margin-top: 40px;
+      text-align: center;
+      color: hsl(72, 3%, 34%);
+    }
+    
+    /* Seção de herói */
+    .hero {
+      position: relative;
+      padding: 100px;
+      background-color: #000;
+      color: white;
+    }
+    
+    /* Bola branca */
+    .bola-branca {
+      position: absolute;
+      top: 225px;
+      right: 100px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, white, #cccccc);
+      border-radius: 50%;
+      box-shadow:
+        0 0 30px white,
+        0 0 60px white,
+        0 0 100px rgba(255, 255, 255, 0.2),
+        inset 0 0 40px rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: brilhoBranco 5s infinite alternate;
+      z-index: 1;
+    }
+    
+    /* Sigla azul */
+    .sigla-azul {
+      color: #89CFF0;
+      font-size: 38px;
+      font-weight: bold;
+      font-family: 'Arial', sans-serif;
+    }
+    
+    /* Animação da bola */
+    @keyframes brilhoBranco {
+      0% {
+        box-shadow:
+          0 0 30px white,
+          0 0 60px white,
+          0 0 100px rgba(255, 255, 255, 0.2),
+          inset 0 0 40px rgba(255, 255, 255, 0.3);
+      }
+      100% {
+        box-shadow:
+          0 0 20px white,
+          0 0 40px white,
+          0 0 80px rgba(255, 255, 255, 0.1),
+          inset 0 0 20px rgba(255, 255, 255, 0.2);
+      }
+    }
+    
+    /* Cards */
+    .cards-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+    
+    .card {
+      width: 200px;
+      height: 200px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+    
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    .card-front {
+      background-color: #111;
+      color: #89CFF0;
+      box-shadow: 0 0 10px #89CFF0;
+    }
+    
+    .card-back {
+      background-color: #000;
+      color: white;
+      transform: rotateY(180deg);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 10px #89CFF0;
+    }
+    
+    /* Seção de habilidades */
+    .habilidades-section {
+      margin-top: 80px;
+      padding: 40px;
+    }
+    
+    .habilidades-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      align-items: flex-start;
+      margin-top: 40px;
+    }
+    
+    .coluna {
+      flex: 1 1 300px;
+      max-width: 500px;
+    }
+    
+    .habilidades-titulo {
+      text-align: center;
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+    
+    .habilidades-subtitulo {
+      text-align: center;
+      color: #a0a0a0;
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+    
+    .titulo-coluna {
+      font-size: 25px;
+      color: #ffffff;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    /* Tecnologias */
+    .tecnologias {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+    }
+    
+    .tecnologias img {
+      width: 60px;
+      height: 60px;
+      animation: flutuar 2s infinite ease-in-out;
+    }
+    
+    @keyframes flutuar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    /* Blocos cinza de habilidades */
+    .bloco-cinza {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+      box-shadow: 0 0 10px #89CFF0;
+    }
+    
+    .bloco-cinza ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .bloco-cinza li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    
+    .bloco-cinza li::before {
+      content: '•';
+      color: #89CFF0;
+      position: absolute;
+      left: 0;
+    }
+    
+    /* Seção de contato */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .titulo-principal {
+      font-size: 32px;
+      text-align: center;
+      margin-top: 40px;
+      color: #fff;
+    }
+    
+    .subtitulo-principal {
+      font-size: 18px;
+      text-align: center;
+      color: #bbb;
+      margin-bottom: 30px;
+    }
+    
+    .contato {
+      background-color: #333;
+      padding: 30px 20px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    .contato h3 {
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    
+    .contato ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .contato li {
+      margin: 12px 0;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .contato i {
+      color: #005582;
+      font-size: 18px;
+    }
+    
+    .contato a {
+      color: #005582;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .contato a:hover {
+      color: #003f63;
+    }
+    
+    .rodape {
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+      margin-top: 40px;
+      padding-bottom: 20px;
+    }
+    
+    </style>
+</head>
+<body>
+  <p class="p1"> <span class="highlight"> JOÃO RENATO</span></p>
+  <h1>seja bem vindo ao meu <span class="highlight"> portifolio</span></h1>
+  
+  <div class="bola-branca">
+      <span class="sigla-azul">JR</span>
+  </div>
+  
+  <p class="p2">Olá, eu sou <span class="highlight">Joao renato </span></p>
+  
+  <p class="p3">Desenvolvimento de Sistemas com foco em <br>Front-End e busca constante por aprendizado. <br>Apaixonado pela tecnologia e em busca <br>da primeira oportunidade na área.</p>
+  
+  <!-- Botões atualizados -->
+  <a href="https://github.com/joaonetttto" target="_blank">
+    <button>Ver Projetos</button>
+  </a>
+  <a href="#contato">
+    <button>Links</button>
+  </a>
+  
+         
+    
+    <h2 class="titulo-com-linha">sobre <span class="highlight">mim</span></h2>
+
+    
+    <p class="texto-centralizado">Sou estudante do curso Técnico em Desenvolvimento de Sistemas integrado ao Ensino <br>Médio, onde estou adquirindo uma base sólida para atuar na área de tecnologia.<br> Complemento minha formação com cursos livres em JavaScript, HTML,<br> CSS e Lógica de Programação. <br>
+     <br>
+       Tenho experiência com projetos pessoais usando tecnologias de front-end e estou<br> sempre praticando para evoluir minhas habilidades. Busco minha primeira oportunidade<br> profissional para aplicar o que aprendi, colaborar em projetos reais e crescer como<br>desenvolvedor de software.</p>
+
+      
+
+
+       <div class="cards-container">
+        <div class="card" onclick="this.classList.toggle('flipped')">
+          <div class="card-inner">
+            <div class="card-front">
+              <span>🎓</span>
+            </div>
+            <div class="card-back">
+              Estudante de Desenvolvimento de Sistemas
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" onclick="this.classList.toggle('flipped')">
+          <div class="card-inner">
+            <div class="card-front">
+              <span>💻</span>
+            </div>
+            <div class="card-back">
+              Estudando Front-End e JavaScript
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" onclick="this.classList.toggle('flipped')">
+          <div class="card-inner">
+            <div class="card-front">
+              <span>🚀</span>
+            </div>
+            <div class="card-back">
+              Sonha em ser Engenheiro de Software
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      
+      
+
+
+
+       
+
+       <section class="habilidades-section">
+        <h3 class="habilidades-titulo titulo-com-linha">minhas <span class="highlight">habilidades</span></h3>
+        <p class="habilidades-subtitulo">Competências técnicas e ferramentas que utilizam no desenvolvimento de projetos</p>
+      
+        <div class="habilidades-grid">
+          
+          <!-- Coluna de Tecnologias -->
+          <div class="coluna">
+            <h4 class="titulo-coluna">tecnologias</h4>
+            <div class="tecnologias">
+              <div class="tecnologia-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+                <span>HTML</span>
+              </div>
+              <div class="tecnologia-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+                <span>CSS</span>
+              </div>
+              <div class="tecnologia-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                <span>JavaScript</span>
+              </div>
+            </div>
+          
+            <p class="descricao-tecnologias">Domínio das principais linguagens da web para criação de interfaces modernas e funcionais.</p>
+          
+            <!-- NOVA SEÇÃO -->
+            <h4 class="titulo-coluna">habilidades interpessoais</h4>
+            <div class="bloco-cinza">
+              <ul class="lista-pontos">
+                <li>Proatividade</li>
+                <li>Aprendizado contínuo</li>
+                <li>Compromisso</li>
+              </ul>
+            </div>
+          </div>
+          
+      
+          <!-- Coluna de Conhecimentos -->
+          <div class="coluna">
+            <h4 class="titulo-coluna">conhecimentos</h4>
+            <div class="bloco-cinza">
+              <ul>
+                <li>Lógica de Programação</li>
+                <li>Estruturação de páginas Web</li>
+                <li>Desenvolvimento Front-End</li>
+              </ul>
+            </div>
+      
+            <h4 class="titulo-coluna" style="margin-top: 30px;">ferramentas</h4>
+            <div class="bloco-cinza">
+              <ul>
+                <li>Código do Visual Studio</li>
+                <li>Git e GitHub (básico)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+       
+      <h2 class="titulo-principal">Entre em contato</h2>
+<p class="subtitulo-principal">Entre em contato para colabs e projetos!</p>
+
+<section class="contato">
+  <h3>Informações de contato</h3>
+  <ul>
+    <li>📧 <i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:joaorenatonetto2021@gmail.com">joaorenatonetto2021@gmail.com</a></li>
+    <li>🔗<i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/feed/?trk=sem-ga_campid.12619604099_asid.149519181115_crid.725790844702_kw.linkedin_d.c_tid.kwd-148086543_n.g_mt.e_geo.9100208" target="_blank">@joão renato</a></li>
+    <li>🐙<i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/joaonetttto" target="_blank">@joaonetttto</a></li>
+  </ul>
+</section>
+
+
+<section id="contato">
+  <h2>Entre em contato</h2>
+  <!-- outros elementos como email, redes sociais, formulário, etc -->
+</section>
+
+<footer class="rodape">
+  Projeto datado de 05/2025
+</footer>
+
+      
+
+</body>
+</html>
